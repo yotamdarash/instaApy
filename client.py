@@ -11,19 +11,19 @@ class Instagram(OAuth2API):
     def __init__(self, **kwargs):
         super(**kwargs)
 
-    def buildPath(self, endpoint):
+    def build_path(self, endpoint):
         return self.host + self.base_path + endpoint
 
-    def buildParams(self, params):
+    def build_params(self, params):
         return params
 
-    def parseRequest(self, endpoint, accepted_oauth_params, accepted_params):
-        path = self.buildPath(endpoint)
-        params = self.buildParam(accepted_params)
-        params.update(self.buildParam(accepted_oauth_params))
+    def parse_request(self, endpoint, accepted_oauth_params, accepted_params):
+        path = self.build_path(endpoint)
+        params = self.build_param(accepted_params)
+        params.update(self.build_param(accepted_oauth_params))
 
         return path, params
 
-    def getRequest(self, endpoint, accepted_oauth_params, accepted_params):
-        path, params = self.parseRequest(endpoint, accepted_oauth_params, accepted_params)
+    def get_request(self, endpoint, accepted_oauth_params, accepted_params):
+        path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
         return unirest.get(path, headers=self.header_default, params=params)
