@@ -4,12 +4,13 @@ from oauth2 import OAuth2API
 
 
 class Instagram(OAuth2API):
-    host = "api.instagram.com"
+    host = "http://api.instagram.com"
     base_path = "/v1"
     header_default = {"Accept": "application/json"}
+    ACCESS_TOKEN_ONLY = ["access_token"]
 
     def __init__(self, **kwargs):
-        super(**kwargs)
+        super(Instagram, self).__init__(**kwargs)
 
     def build_path(self, endpoint):
         return self.host + self.base_path + endpoint
@@ -17,10 +18,16 @@ class Instagram(OAuth2API):
     def build_params(self, params):
         return params
 
+    def build_oauth_params(self, params):
+        if params == self.ACCESS_TOKEN_ONLY:
+            return {"access_token": self.access_token}
+        else:
+            raise NotImplementedError("ouath params {} not implemented".format(params))
+
     def parse_request(self, endpoint, accepted_oauth_params, accepted_params):
         path = self.build_path(endpoint)
-        params = self.build_param(accepted_params)
-        params.update(self.build_param(accepted_oauth_params))
+        params = self.build_params(accepted_params)
+        params.update(self.build_oauth_params(accepted_oauth_params))
 
         return path, params
 
