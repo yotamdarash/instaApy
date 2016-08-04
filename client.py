@@ -3,14 +3,14 @@ import unirest
 from oauth2 import OAuth2API
 
 
-class Instagram(OAuth2API):
+class Client(OAuth2API):
     host = "http://api.instagram.com"
     base_path = "/v1"
     header_default = {"Accept": "application/json"}
     ACCESS_TOKEN_ONLY = ["access_token"]
 
     def __init__(self, **kwargs):
-        super(Instagram, self).__init__(**kwargs)
+        super(Client, self).__init__(**kwargs)
 
     def build_path(self, endpoint):
         return self.host + self.base_path + endpoint
