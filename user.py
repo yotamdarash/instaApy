@@ -1,7 +1,7 @@
-from client import Instagram
+from client import Client
 
 
-class User(Instagram):
+class User(Client):
     endpoint_base = "/users"
 
     def __init__(self, **kwargs):

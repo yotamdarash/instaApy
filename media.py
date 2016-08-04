@@ -1,7 +1,7 @@
-from client import Instagram
+from client import Client
 
 
-class Media(Instagram):
+class Media(Client):
     endpoint_base = "/media"
 
     def __init__(self, **kwargs):
