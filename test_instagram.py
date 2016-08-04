@@ -26,8 +26,15 @@ class TestInstagram(TestCase):
         response = self.user.self()
         self.assertEqual(response.code, 200)
 
-    def test_user_self_recent_media(self):
-        self.fail()
+    def test_user_self_recent_media_response_code(self):
+        self.setup_user()
+        response = self.user.self_recent_media()
+        self.assertEqual(response.code, 200)
+
+    def test_user_self_recent_media_count(self):
+        self.setup_user()
+        response = self.user.self_recent_media(count=2)
+        self.assertEqual(len(response.body["data"]), 2)
 
     def test_user_id(self):
         self.setup_user()
@@ -35,7 +42,11 @@ class TestInstagram(TestCase):
         self.assertEqual(response.code, 200)
 
     def test_self_liked(self):
-        self.fail()
+        self.setup_user()
+        response = self.user.self_liked()
+        self.assertEqual(response.code, 200)
 
     def test_search(self):
-        self.fail()
+        self.setup_user()
+        response = self.user.search("meshu")
+        self.assertEqual(response.code, 200)
