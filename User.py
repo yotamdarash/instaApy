@@ -18,7 +18,11 @@ class User(Instagram):
         pass
 
     def user_id(self, user_id):
-        pass
+        oauth_params = self.ACCESS_TOKEN_ONLY
+        params = {}
+        endpoint = self.endpoint_base + "/" + str(user_id)
+        response = self.get_request(endpoint, oauth_params, params)
+        return response
 
     def user_recent_media(self, user_id, count=None, min_id=None, max_id=None):
         pass

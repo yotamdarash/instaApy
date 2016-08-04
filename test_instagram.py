@@ -24,12 +24,15 @@ class TestInstagram(TestCase):
     def test_user_self(self):
         self.setup_user()
         response = self.user.self()
-        self.assertEqual(response.code,200)
+        self.assertEqual(response.code, 200)
+
     def test_user_self_recent_media(self):
         self.fail()
 
     def test_user_id(self):
-        self.fail()
+        self.setup_user()
+        response = self.user.user_id(189464193)
+        self.assertEqual(response.code, 200)
 
     def test_self_liked(self):
         self.fail()
