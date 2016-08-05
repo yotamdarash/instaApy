@@ -1,5 +1,4 @@
 import unirest
-
 from oauth2 import OAuth2API
 
 
@@ -34,3 +33,11 @@ class Client(OAuth2API):
     def get_request(self, endpoint, accepted_oauth_params, accepted_params):
         path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
         return unirest.get(path, headers=self.header_default, params=params)
+
+    def post_request(self, endpoint, accepted_oauth_params, accepted_params):
+        path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
+        return unirest.post(path, headers=self.header_default, params=params)
+
+    def delete_request(self, endpoint, accepted_oauth_params, accepted_params):
+        path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
+        return unirest.delete(path, headers=self.header_default, params=params)
