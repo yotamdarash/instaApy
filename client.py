@@ -9,6 +9,7 @@ class Client(OAuth2API):
     header_default = {"Accept": "application/json"}
     ACCESS_TOKEN_ONLY = ["access_token"]
 
+
     def __init__(self, **kwargs):
         super(Client, self).__init__(**kwargs)
 
