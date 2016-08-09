@@ -36,16 +36,13 @@ class Client(OAuth2API):
         path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
         r = requests.get(path, params=params)
         return r
-        # return unirest.get(path, headers=self.header_default, params=params)
 
     def post_request(self, endpoint, accepted_oauth_params, accepted_params):
         path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
         r = requests.post(path, data=params)
         return r
-        # return unirest.post(path, headers=self.header_default, params=params)
 
     def delete_request(self, endpoint, accepted_oauth_params, accepted_params):
         path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
         r = requests.delete(path, params=params)
         return r
-        # return unirest.delete(path, headers=self.header_default, params=json.dumps(params))

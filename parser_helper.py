@@ -15,3 +15,4 @@ def get_pagination(response):
         return parsed_response["pagination"]
     else:
         return None
+
