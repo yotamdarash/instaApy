@@ -23,5 +23,5 @@ class TestTags(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tags_search(self):
-        response = self.tags.tags_info(self.tag_to_search)
+        response = self.tags.tags_search(self.tag_to_search)
         self.assertEqual(response.status_code, 200)
