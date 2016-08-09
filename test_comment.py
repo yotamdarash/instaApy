@@ -15,11 +15,11 @@ class TestComment(TestCase):
 
     def test_get_comments(self):
         response = self.comment.get_comments(self.media_id_to_test)
-        self.assertEqual(response.code,200)
+        self.assertEqual(response.status_code,200)
     def test_post_comment(self):
         response = self.comment.post_comment(self.media_id_to_test,
                                              "commentfrompythonwrapper")
-        self.assertEqual(response.code,200)
+        self.assertEqual(response.status_code,200)
     def test_delete_comment(self):
         response = self.comment.delete_comment(self.media_id_to_test, "17859821500037944")
-        self.assertEqual(response.code,200)
+        self.assertEqual(response.status_code,200)

@@ -27,7 +27,7 @@ class Media(Client):
         if latitude and longitude:
             params.update({"lat": latitude, "lng": longitude})
         if distance != 1000:
-            params.update({"distance": distance})
+            params["distance"] = distance
         endpoint = self.endpoint_base + "/search"
         response = self.get_request(endpoint, oauth_params, params)
         return response

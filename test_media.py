@@ -15,12 +15,12 @@ class TestMedia(TestCase):
 
     def test_media_id(self):
         response = self.media.media_id("1238562854941068266_189464193")
-        self.assertEqual(response.code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_media_shortcode(self):
         response = self.media.media_shortcode("BErotNxQYnK")
-        self.assertEqual(response.code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_media_search(self):
         response = self.media.media_search(latitude=48.858844, longitude=2.294351)
-        self.assertEqual(response.code, 200)
+        self.assertEqual(response.status_code, 200)
