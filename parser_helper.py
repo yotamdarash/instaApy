@@ -9,3 +9,9 @@ def get_meta(response):
 def get_data(response):
     return get_envelope(response)["data"]
 
+def get_pagenation(response):
+    parsed_response = get_envelope(response)
+    if "pagination" in parsed_response:
+        return parsed_response["pagination"]
+    else:
+        return None

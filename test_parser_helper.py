@@ -10,7 +10,7 @@ class TestGet_envelope(TestCase):
     test_response = None
 
     def setUp(self):
-        self.test_response = self.api.comments.get_comments(self.MEDIA_ID)
+        self.test_response = self.api.users.self_recent_media()
 
     def test_get_envelope(self):
         envelope = parser_helper.get_envelope(self.test_response)
@@ -23,3 +23,7 @@ class TestGet_envelope(TestCase):
     def test_get_data(self):
         data = parser_helper.get_data(self.test_response)
         self.assertIsNotNone(data)
+
+    def test_get_pagination(self):
+        pagination = parser_helper.get_pagenation(self.test_response)
+        self.assertIsNotNone(pagination)
