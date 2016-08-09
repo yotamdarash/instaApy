@@ -1,10 +1,11 @@
 import json
 
 def get_envelope(response):
-    response_in_json = json.loads(response.text)
-    return response_in_json
-
+    return json.loads(response.text)
 
 def get_meta(response):
-    meta = get_envelope(response)["meta"]
-    return meta
+    return get_envelope(response)["meta"]
+
+def get_data(response):
+    return get_envelope(response)["data"]
+
