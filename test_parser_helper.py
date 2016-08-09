@@ -25,5 +25,5 @@ class TestGet_envelope(TestCase):
         self.assertIsNotNone(data)
 
     def test_get_pagination(self):
-        pagination = parser_helper.get_pagenation(self.test_response)
+        pagination = parser_helper.get_pagination(self.test_response)
         self.assertIsNotNone(pagination)
