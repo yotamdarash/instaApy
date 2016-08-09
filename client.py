@@ -1,9 +1,11 @@
-import unirest
+import requests
+import unirest, json
+
 from oauth2 import OAuth2API
 
 
 class Client(OAuth2API):
-    host = "http://api.instagram.com"
+    host = "https://api.instagram.com"
     base_path = "/v1"
     header_default = {"Accept": "application/json"}
     ACCESS_TOKEN_ONLY = ["access_token"]
@@ -40,4 +42,6 @@ class Client(OAuth2API):
 
     def delete_request(self, endpoint, accepted_oauth_params, accepted_params):
         path, params = self.parse_request(endpoint, accepted_oauth_params, accepted_params)
-        return unirest.delete(path, headers=self.header_default, params=params)
+        r = requests.delete(path,params = params)
+        return r
+        # return unirest.delete(path, headers=self.header_default, params=json.dumps(params))
