@@ -19,4 +19,3 @@ class InstagramAPI():
         self.likes = Likes(access_token=access_token)
         self.tags = Tags(access_token=access_token)
         self.locations = Locations(access_token=access_token)
-    
