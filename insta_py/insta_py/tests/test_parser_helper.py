@@ -1,8 +1,7 @@
 from unittest import TestCase
 
-import parser_helper
 from app_info import AppInfo
-from insta_py import InstagramAPI
+from insta_py import InstagramAPI, get_meta, get_pagination, get_data, get_envelope
 
 
 class TestGet_envelope(TestCase):
@@ -14,17 +13,17 @@ class TestGet_envelope(TestCase):
         self.test_response = self.api.users.self_recent_media()
 
     def test_get_envelope(self):
-        envelope = parser_helper.get_envelope(self.test_response)
+        envelope = get_envelope(self.test_response)
         self.assertTrue(all(key in envelope for key in ("meta", "data")))
 
     def test_get_meta(self):
-        meta = parser_helper.get_meta(self.test_response)
+        meta = get_meta(self.test_response)
         self.assertTrue("code" in meta)
 
     def test_get_data(self):
-        data = parser_helper.get_data(self.test_response)
+        data = get_data(self.test_response)
         self.assertIsNotNone(data)
 
     def test_get_pagination(self):
-        pagination = parser_helper.get_pagination(self.test_response)
+        pagination = get_pagination(self.test_response)
         self.assertIsNotNone(pagination)
