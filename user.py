@@ -45,7 +45,7 @@ class User(Client):
             params["mind_id"] = min_id
         if max_id:
             params["max_id"] = max_id
-        endpoint = posixpath.join(self.endpoint_base, str(user§_id), "media", "recent")
+        endpoint = posixpath.join(self.endpoint_base, str(user_id), "media", "recent")
         response = self._get_request(endpoint, oauth_params, params)
         return response
 
