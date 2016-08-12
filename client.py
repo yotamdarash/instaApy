@@ -9,11 +9,10 @@ class Client(OAuth2API):
     header_default = {"Accept": "application/json"}
     ACCESS_TOKEN_ONLY = ["access_token"]
 
-
     def __init__(self, **kwargs):
         super(Client, self).__init__(**kwargs)
 
-    def _build_path(self, endpoint): #TODO: make private
+    def _build_path(self, endpoint):
         return self.host + self.base_path + endpoint
 
     def _build_params(self, params):
