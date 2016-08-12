@@ -1,12 +1,13 @@
 from unittest import TestCase
 
 import parser_helper
+from app_info import AppInfo
 from instagramAPI import InstagramAPI
 
 
 class TestGet_envelope(TestCase):
     MEDIA_ID = "1238562854941068266_189464193"
-    api = InstagramAPI(access_token='189464193.b3e2bf8.1a1a1f0696a84017b1c4bac1443f892e')
+    api = InstagramAPI(access_token=AppInfo.access_token)
     test_response = None
 
     def setUp(self):
