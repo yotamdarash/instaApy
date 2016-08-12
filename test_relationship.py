@@ -1,14 +1,14 @@
 from unittest import TestCase
 
 from app_info import AppInfo
-from relationship import Relationship
-
+from insta_py import InstagramAPI
 
 class TestRelationship(TestCase):
     relationship = None
 
     def setUp(self):
-        self.relationship = Relationship(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.relationship = instagramAPI.relationships
         self.user_id_to_test = "189464193"
 
     def test_follows(self):

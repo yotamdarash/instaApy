@@ -1,14 +1,15 @@
 from unittest import TestCase
 
 from app_info import AppInfo
-from location import Locations
+from insta_py import InstagramAPI
 
 
 class TestLocations(TestCase):
     locations = None
 
     def setUp(self):
-        self.locations = Locations(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.locations = instagramAPI.locations
         self.location_id = "1"
 
     def test_locations_info(self):

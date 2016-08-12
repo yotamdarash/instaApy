@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import parser_helper
 from app_info import AppInfo
-from instagramAPI import InstagramAPI
+from insta_py import InstagramAPI
 
 
 class TestGet_envelope(TestCase):

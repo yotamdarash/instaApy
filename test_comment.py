@@ -1,13 +1,13 @@
 from unittest import TestCase
 from app_info import AppInfo
-from comment import Comment
-
+from insta_py import InstagramAPI
 
 class TestComment(TestCase):
     comment = None
-    #TODO: reset and hide access token
+
     def setUp(self):
-        self.comment = Comment(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.comment = instagramAPI.comments
         self.media_id_to_test = "1238562854941068266_189464193"
 
     def test_get_comments(self):

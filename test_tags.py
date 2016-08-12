@@ -1,13 +1,16 @@
 from unittest import TestCase
+
+from insta_py import InstagramAPI
+
 from app_info import AppInfo
-from tags import Tags
 
 
 class TestTags(TestCase):
     tags = None
 
     def setUp(self):
-        self.tags = Tags(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.tags = instagramAPI.tags
         self.tag_to_search = "paleo"
 
     def test_tags_info(self):

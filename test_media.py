@@ -1,14 +1,14 @@
 from unittest import TestCase
 
 from app_info import AppInfo
-from media import Media
-
+from insta_py import InstagramAPI
 
 class TestMedia(TestCase):
     media = None
 
     def setUp(self):
-        self.media = Media(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.media = instagramAPI.media
 
     def test_media_id(self):
         response = self.media.media_id("1238562854941068266_189464193")

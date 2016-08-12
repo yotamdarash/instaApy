@@ -1,14 +1,15 @@
 from unittest import TestCase
 
 from app_info import AppInfo
-from likes import Likes
+from insta_py import InstagramAPI
 
 
 class TestLikes(TestCase):
     likes = None
 
     def setUp(self):
-        self.likes = Likes(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.likes = instagramAPI.likes
         self.media_id_to_test = "1238562854941068266_189464193"
 
     def test_get_liked(self):

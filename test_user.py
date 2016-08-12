@@ -2,14 +2,15 @@ import json
 from unittest import TestCase
 
 from app_info import AppInfo
-from user import User
+from insta_py import InstagramAPI
 
 
 class TestUser(TestCase):
     user = None
 
     def setUp(self):
-        self.user = User(access_token=AppInfo.access_token)
+        instagramAPI = InstagramAPI(access_token=AppInfo.access_token)
+        self.user = instagramAPI.users
 
     def test_user_self(self):
         response = self.user.self()

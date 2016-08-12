@@ -7,7 +7,7 @@ from tags import Tags
 from user import User
 
 
-class InstagramAPI():
+class InstagramAPI:
     def __init__(self, access_token, client_id=None,
                  client_secret=None,
                  client_ips=None,
