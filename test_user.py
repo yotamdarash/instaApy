@@ -1,6 +1,7 @@
 import json
 from unittest import TestCase
 
+from app_info import AppInfo
 from user import User
 
 
@@ -8,11 +9,7 @@ class TestUser(TestCase):
     user = None
 
     def setUp(self):
-        self.user = User(client_id='b3e2bf83b14747e89cb526adf934563c',
-                         client_secret='7855bdc2ae4341468784204895aaa0a6',
-                         client_ips='189464193',
-                         access_token='189464193.b3e2bf8.1a1a1f0696a84017b1c4bac1443f892e',
-                         redirect_uri=None)
+        self.user = User(access_token=AppInfo.access_token)
 
     def test_user_self(self):
         response = self.user.self()
