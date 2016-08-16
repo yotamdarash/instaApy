@@ -13,5 +13,6 @@ setup(name='insta_py',
       ],
       zip_safe=False,
       test_suite='nose.collector',
-      tests_require=['nose']
+      tests_require=['nose'],
+      include_package_data = True
       )
