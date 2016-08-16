@@ -32,7 +32,7 @@ Build a data model from response
 ```python
 from insta_py import InstagramAPI, parse_comment
 
-raw_response = api.comments.get_comments(self.MEDIA_ID)
+raw_response = api.comments.get_comments("MEDIA_ID")
 comment, pagination = parse_comment(raw_response)
 print comment[0].name
 
