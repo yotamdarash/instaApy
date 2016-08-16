@@ -26,7 +26,7 @@ response  = api.user.self_recent_media(count=5)
 
 ```
 
-###parsing responses
+###Parsing responses
 
 ``` python
 from insta_py import get_meta, get_pagination, get_data, get_envelope
@@ -37,7 +37,7 @@ data = get_data(response)
 pagination_data = get_pagination(response)
 ```
 
-###Tests
+###Running tests
 
 First you must set your own access token in insta_py/test/app_info
 
