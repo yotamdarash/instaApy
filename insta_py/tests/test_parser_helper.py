@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from app_info import AppInfo
 from insta_py import InstagramAPI, get_meta, get_pagination, get_data, get_envelope, \
-    parse_media, parse_user, parse_tag, parse_comment, parse_relationship, parse_location
+    parse_media, parse_user, parse_tag, parse_comment, parse_relationship, parse_location, parse_shortcode
 
 
 class TestGet_envelope(TestCase):
@@ -73,6 +73,14 @@ class TestGet_envelope(TestCase):
         response = self.api.locations.locations_info(1)
         location, pagination = parse_location(response)
         try:
-            self.assertIsNotNone(location.incoming_status)
+            self.assertIsNotNone(location.longitude)
+        except TypeError:
+            self.fail()
+
+    def test_parse_shortcode(self):
+        response = self.api.media.media_shortcode("BErotNxQYnK")
+        shortcode, pagination = parse_shortcode(response)
+        try:
+            self.assertIsNotNone(shortcode.link)
         except TypeError:
             self.fail()
