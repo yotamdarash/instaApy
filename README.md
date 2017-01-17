@@ -3,11 +3,6 @@ insta_py - bare-bones Python wrapper for Instagram API
 
 Unoffical wrapper for Instagram's REST API
 
-Installation
------
-```
-pip install insta_py
-```
 Requires
 -----
   * requests

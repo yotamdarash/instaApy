@@ -33,3 +33,19 @@ class Media(Client):
         endpoint = posixpath.join(self.endpoint_base, "search")
         response = self._get_request(endpoint, oauth_params, params)
         return response
+
+
+
+
+nums = [1,2,3]
+result = []
+for i in xrange(1,len(nums)):
+    result_lenth = len(nums)
+    for j in xrange(0, result_lenth):
+        if j+i < result_lenth:
+            end_location = j+i
+        else:
+            pass
+        result.append(nums[j:end_location])
+
+print result
